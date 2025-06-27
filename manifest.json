@@ -1,0 +1,20 @@
+{
+  "name": "Solvable",
+  "short_name": "Solvable",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0f2027",
+  "theme_color": "#1fadea",
+  "icons": [
+    {
+      "src": "solvableicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "solvableicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
