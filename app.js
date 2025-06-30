@@ -1,19 +1,45 @@
-// app.js
-
+// ===========================
+// DOM References
+// ===========================
 const appContent = document.getElementById("appContent");
+const wrapper = document.querySelector(".zoom-wrapper");
+const content = document.querySelector(".app-content");
 
+let scale = 1;
+let panX = 0;
+let panY = 0;
+let isDragging = false;
+let lastX = 0;
+let lastY = 0;
+
+// ===========================
+// App Initialization
+// ===========================
+document.querySelector(".getStartedBtn").addEventListener("click", () => {
+  document.querySelector(".greeting").style.display = "none";
+  appContent.style.display = "block";
+  addBranch(appContent);
+});
+
+// ===========================
+// Tree Input Logic
+// ===========================
+
+
+function closeModal() {
+  document.getElementById('1clarification').style.display = 'none';
+  document.getElementById('2clarification').style.display = 'none';
+  document.getElementById('3clarification').style.display = 'none';
+}
 function addBranch(parent, prefillGoal = null) {
   const branch = document.createElement("div");
   branch.className = "branch";
-
-  // Flag the root container
   if (parent.id === "appContent" || parent.classList.contains("root")) {
     branch.classList.add("root");
   }
 
   const box = document.createElement("div");
   box.className = "branch-box";
-
   parent.appendChild(branch);
   branch.appendChild(box);
 
@@ -21,91 +47,101 @@ function addBranch(parent, prefillGoal = null) {
   container.className = "input-group-container";
   box.appendChild(container);
 
-  // Goal input
-  const inputGroup = document.createElement("div");
-  inputGroup.className = "question";
-  inputGroup.innerHTML = `
-    <label>what do you want to achieve?</label>
-  
-  `;
-  container.appendChild(inputGroup);
-
-  const goalGroup = document.createElement("div");
-  goalGroup.className = "input-group";
-  goalGroup.innerHTML = `
-    <label>The Goal</label>
-    <input
-      placeholder="Enter the goal:"
-      ${prefillGoal ? `value="${prefillGoal}" disabled` : ""}
-    />`;
-  container.appendChild(goalGroup);
+  // Add the goal input group
+  const goalGroup = createInputGroup("The Goal", "Enter the goal:", prefillGoal);
+  if (prefillGoal) {
+    goalGroup.input.value = prefillGoal;
+    goalGroup.input.disabled = true;
+    const question = createLabel("Your goal now is:");
+    container.appendChild(question);
+  } else {
+    const question = createLabel("What do you want to achieve?");
+    container.appendChild(question);
+  }
+  container.appendChild(goalGroup.group);
 
   if (prefillGoal) {
     addProblemInput(container, branch);
   } else {
-    goalGroup.querySelector("input").addEventListener("keydown", e => {
+    goalGroup.input.focus();
+    goalGroup.input.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && e.target.value.trim()) {
         e.target.disabled = true;
         addProblemInput(container, branch);
-      }
-    });
+        document.getElementById('1clarification').style.display = 'flex';
+        }
+      });
+    }
   }
-}
-
-
+let clarificationShown = false;
 
 function addProblemInput(container, branch) {
+  const question = createLabel("What's preventing you from doing this?");
+  const problemGroup = createInputGroup("The Problem", "Enter the problem:");
+  container.appendChild(question);
+  container.appendChild(problemGroup.group);
 
-  const inputGroup = document.createElement("div");
-  inputGroup.className = "question";
-  inputGroup.innerHTML = `
-    <label>what's preventing you from doing this?</label>
-
-  `;
-  container.appendChild(inputGroup); 
-
-  const problemGroup = document.createElement("div");
-  problemGroup.className = "input-group";
-  problemGroup.innerHTML = `
-    <label>The Problem</label>
-    <input placeholder="Enter the problem:" />`;
-  container.appendChild(problemGroup);
-
-  problemGroup.querySelector("input").addEventListener("keydown", e => {
+  problemGroup.input.focus();
+  problemGroup.input.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && e.target.value.trim()) {
+      if (!clarificationShown) {
+        document.getElementById('2clarification').style.display = 'flex';
+        clarificationShown = true;
+      }
       e.target.disabled = true;
       addSolutionInput(container, branch);
     }
+    // If input is empty, do nothing
   });
 }
 
-function addSolutionInput(container, branch) {
-  const inputGroup = document.createElement("div");
-  inputGroup.className = "question";
-  inputGroup.innerHTML = `
-    <label>How might you overcome this?</label>
-  
-  `;
-  container.appendChild(inputGroup);
-  const solutionGroup = document.createElement("div");
-  solutionGroup.className = "input-group";
-  solutionGroup.innerHTML = `
-    <label>The Solution</label>
-    <input placeholder="Enter the solution:" />`;
-  container.appendChild(solutionGroup);
+let clarificationShown2 = false;
 
-  solutionGroup.querySelector("input").addEventListener("keydown", e => {
+function addSolutionInput(container, branch) {
+  const question = createLabel("How might you overcome this?");
+  const solutionGroup = createInputGroup("The Solution", "Enter the solution:");
+  container.appendChild(question);
+  container.appendChild(solutionGroup.group);
+
+  solutionGroup.input.focus();
+  solutionGroup.input.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && e.target.value.trim()) {
+      if (!clarificationShown2) {
+        document.getElementById('3clarification').style.display = 'flex';
+        clarificationShown2 = true;
+      }
       e.target.disabled = true;
       addBranch(branch, e.target.value.trim());
     }
   });
 }
 
-document.querySelector(".getStartedBtn").addEventListener("click", () => {
-  document.querySelector(".greeting").style.display = "none";
-  appContent.style.display = "block";
-  addBranch(appContent);
-});
+function createLabel(text) {
+  const labelDiv = document.createElement("div");
+  labelDiv.className = "question";
+  labelDiv.innerHTML = `<label>${text}</label>`;
+  return labelDiv;
+}
+
+function createInputGroup(labelText, placeholder, prefill = null) {
+  const group = document.createElement("div");
+  group.className = "input-group";
+
+  const label = document.createElement("label");
+  label.textContent = labelText;
+
+  const input = document.createElement("input");
+  input.placeholder = placeholder;
+  if (prefill) {
+    input.value = prefill;
+    input.disabled = true;
+  }
+  group.appendChild(label);
+  group.appendChild(input);
+  return { group, input };
+}
+
+
+
 
 

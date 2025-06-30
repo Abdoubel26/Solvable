@@ -11,14 +11,36 @@
 </head>
 <body>
   <div class="greeting">
-   
     <h1 class="sptx">Welcome to Solvable</h1>
     <img src="Solvable logo.png" alt="Solvable Logo" class="logo" style="border-radius: 5%; width: 70px; height: 70px; margin-bottom: 20px;">
     <button class="getStartedBtn">Get Started</button>
   </div>
+  
+    <div id="appContent" class="app-content" style="display: none;"></div>
 
-  <!-- appContent stays empty; branches injected by JS -->
-  <div id="appContent" style="display: none;"></div>
-  <script src="app.js"></script>
+  <script src="app.js" style="align-items: flex-start;"></script>
+  <div class="modal" id="1clarification">
+  <div class="modal-content">
+    <h2>Advice 1</h2>
+    <p>The problem is the thing not allowing you to achieve your goal, it can be anything (e.g. laziness, poverty, etc). Take your time to think.</p>
+    <button onclick="closeModal()">Ok</button>
+  </div>
+</div>
+
+<div class="modal" id="2clarification">
+  <div class="modal-content">
+    <h2>Advice 2</h2>
+    <p>The Solution is just the opposite of the problem (e.g. if the problem is laziness, the solution is overcoming it) it is that simple. Think about how you can overcome the problem.</p>
+    <button onclick="closeModal()">Ok</button>
+  </div>
+</div> 
+
+<div class="modal" id="3clarification">
+  <div class="modal-content">
+    <h2>Advice 3</h2>
+    <p>This solution becomes your new goal, since you can't achieve the main goal without achieving this solution. What is preventing you from doing this solution?.</p>
+    <button onclick="closeModal()">Ok</button>
+  </div>
+</div> 
 </body>
 </html>
