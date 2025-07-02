@@ -25,7 +25,46 @@ document.querySelector(".getStartedBtn").addEventListener("click", () => {
 // Tree Input Logic
 // ===========================
 
+function createSuggestionDropdown(inputElement, suggestions) {
+  const list = document.createElement("ul");
+  list.className = "suggestion-list";
+  document.body.appendChild(list); // Attach to body for absolute positioning
 
+  inputElement.addEventListener("focus", () => {
+    list.classList.add("visible");
+    updateSuggestions(); // Show all suggestions
+    positionList();       // Place below input
+  });
+
+  inputElement.addEventListener("blur", () => {
+    setTimeout(() => list.classList.remove("visible"), 100);
+  });
+
+  function updateSuggestions() {
+    list.innerHTML = "";
+    suggestions.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      li.onclick = () => {
+        inputElement.value = item;
+        list.classList.remove("visible");
+        inputElement.focus();
+      };
+      list.appendChild(li);
+    });
+  }
+
+  function positionList() {
+    const rect = inputElement.getBoundingClientRect();
+    list.style.position = "absolute";
+    list.style.left = `${rect.left + window.scrollX}px`;
+    list.style.top = `${rect.bottom + 8 + window.scrollY}px`;
+    list.style.width = `${rect.width}px`;
+    list.style.zIndex = 1000;
+  }
+}
+
+// ===========================
 function closeModal() {
   document.getElementById('1clarification').style.display = 'none';
   document.getElementById('2clarification').style.display = 'none';
@@ -81,6 +120,9 @@ function addProblemInput(container, branch) {
   container.appendChild(question);
   container.appendChild(problemGroup.group);
 
+  const problemSuggestions = ["I don't know how to do it", "Procrastination", "Lack of motivation"]; // Change as needed
+  createSuggestionDropdown(problemGroup.input, problemSuggestions);
+
   problemGroup.input.focus();
   problemGroup.input.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && e.target.value.trim()) {
@@ -91,9 +133,9 @@ function addProblemInput(container, branch) {
       e.target.disabled = true;
       addSolutionInput(container, branch);
     }
-    // If input is empty, do nothing
   });
 }
+
 
 let clarificationShown2 = false;
 
@@ -102,6 +144,9 @@ function addSolutionInput(container, branch) {
   const solutionGroup = createInputGroup("The Solution", "Enter the solution:");
   container.appendChild(question);
   container.appendChild(solutionGroup.group);
+
+  const solutionSuggestions = ["Learn how to do it", "Start small", "Ask for help", "clarify your vision"]; // Change as needed
+  createSuggestionDropdown(solutionGroup.input, solutionSuggestions);
 
   solutionGroup.input.focus();
   solutionGroup.input.addEventListener("keydown", (e) => {
@@ -115,6 +160,7 @@ function addSolutionInput(container, branch) {
     }
   });
 }
+
 
 function createLabel(text) {
   const labelDiv = document.createElement("div");
