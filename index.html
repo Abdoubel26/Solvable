@@ -15,8 +15,11 @@
     <img src="Solvable logo.png" alt="Solvable Logo" class="logo" style="border-radius: 5%; width: 70px; height: 70px; margin-bottom: 20px;">
     <button class="getStartedBtn">Get Started</button>
   </div>
-  
     <div id="appContent" class="app-content" style="display: none;"></div>
+  
+  <div class="toolbar-container">
+    <button class="toolbar" id="resetBtn">Reset</button>
+  </div>
 
   <script src="app.js" style="align-items: flex-start;"></script>
   <div class="modal" id="1clarification">
@@ -27,10 +30,18 @@
   </div>
 </div>
 
+
 <div class="modal" id="2clarification">
   <div class="modal-content">
     <h2>Advice 2</h2>
-    <p>The Solution is just the opposite of the problem (e.g. if the problem is laziness, the solution is overcoming it) it is that simple. Think about how you can overcome the problem.</p>
+    <p>
+  Solutions are often the reverse of the problem.
+  For example, If the problem is laziness, the solution is to stop being lazy.
+  Simple.
+  <br>
+  You’re also free to describe a more specific solution that fits your situation.
+  Take your time to think about it.
+</p>
     <button onclick="closeModal()">Ok</button>
   </div>
 </div> 
@@ -38,9 +49,11 @@
 <div class="modal" id="3clarification">
   <div class="modal-content">
     <h2>Advice 3</h2>
-    <p>This solution becomes your new goal, since you can't achieve the main goal without achieving this solution. What is preventing you from doing this solution?.</p>
+    <p>This solution becomes your current goal, since you can't achieve the main goal without achieving this solution. What is preventing you from doing this solution?.</p>
     <button onclick="closeModal()">Ok</button>
   </div>
 </div> 
+
+
 </body>
 </html>

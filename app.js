@@ -2,7 +2,6 @@
 // DOM References
 // ===========================
 const appContent = document.getElementById("appContent");
-const wrapper = document.querySelector(".zoom-wrapper");
 const content = document.querySelector(".app-content");
 
 let scale = 1;
@@ -17,12 +16,17 @@ let lastY = 0;
 // ===========================
 document.querySelector(".getStartedBtn").addEventListener("click", () => {
   document.querySelector(".greeting").style.display = "none";
-  appContent.style.display = "block";
+  document.querySelector("#appContent").style.display = "block";
+  document.querySelector("#resetBtn").style.display = "inline-block";
   addBranch(appContent);
 });
 
-// ===========================
-// Tree Input Logic
+document.querySelector("#resetBtn").addEventListener("click", () => {
+  appContent.innerHTML = "";
+  document.getElementById("appContent").style.display = "flex";
+  addBranch(appContent);
+  document.querySelector(".branch").style.width = "100%";
+});
 // ===========================
 
 function createSuggestionDropdown(inputElement, suggestions) {
@@ -39,6 +43,7 @@ function createSuggestionDropdown(inputElement, suggestions) {
   inputElement.addEventListener("blur", () => {
     setTimeout(() => list.classList.remove("visible"), 100);
   });
+
 
   function updateSuggestions() {
     list.innerHTML = "";
@@ -105,6 +110,7 @@ function addBranch(parent, prefillGoal = null) {
     goalGroup.input.focus();
     goalGroup.input.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && e.target.value.trim()) {
+         
         e.target.disabled = true;
         addProblemInput(container, branch);
         document.getElementById('1clarification').style.display = 'flex';
@@ -186,6 +192,7 @@ function createInputGroup(labelText, placeholder, prefill = null) {
   group.appendChild(input);
   return { group, input };
 }
+
 
 
 
