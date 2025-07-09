@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9GEH6ZNF97"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9GEH6ZNF97');
-</script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Solvable</title>
@@ -24,12 +15,13 @@
     <img src="Solvable logo.png" alt="Solvable Logo" class="logo" style="border-radius: 5%; width: 70px; height: 70px; margin-bottom: 20px;">
     <button class="getStartedBtn">Get Started</button>
   </div>
-    <div id="appContent" class="app-content" style="display: none;"></div>
-  
   <div class="toolbar-container">
-    <button class="toolbar" id="resetBtn">Reset</button>
-  </div>
+      <button class="toolbar" id="resetBtn">Reset</button>
+    </div>
 
+    <div id="appContent" class="app-content" style="display: none;">
+  
+  
   <script src="app.js" style="align-items: flex-start;"></script>
   <div class="modal" id="1clarification">
   <div class="modal-content">
@@ -38,8 +30,6 @@
     <button onclick="closeModal()">Ok</button>
   </div>
 </div>
-
-
 <div class="modal" id="2clarification">
   <div class="modal-content">
     <h2>Advice 2</h2>
@@ -62,7 +52,7 @@
     <button onclick="closeModal()">Ok</button>
   </div>
 </div> 
-
+</div>
 
 </body>
 </html>
