@@ -14,23 +14,20 @@ let lastY = 0;
 // ===========================
 // App Initialization
 // ===========================
-document.querySelector("#resetBtn").style.display = "none"; // Hide reset button initially
 document.querySelector(".getStartedBtn").addEventListener("click", () => {
   document.querySelector(".greeting").style.display = "none";
   document.querySelector("#appContent").style.display = "block";
+  document.querySelector("#resetBtn").style.display = "inline-block";
   addBranch(appContent);
 });
-// ...existing code...
 
 document.querySelector("#resetBtn").addEventListener("click", () => {
   appContent.innerHTML = "";
   document.getElementById("appContent").style.display = "flex";
   addBranch(appContent);
   document.querySelector(".branch").style.width = "100%";
-  document.querySelector("#resetBtn").style.display = "none"; // Hide again after reset
 });
-
-// ...existing code...====================
+// ===========================
 
 function createSuggestionDropdown(inputElement, suggestions) {
   const list = document.createElement("ul");
@@ -113,10 +110,10 @@ function addBranch(parent, prefillGoal = null) {
     goalGroup.input.focus();
     goalGroup.input.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && e.target.value.trim()) {
-        document.querySelector("#resetBtn").style.display = "flex";
+         
         e.target.disabled = true;
-        document.getElementById('1clarification').style.display = 'flex';
         addProblemInput(container, branch);
+        document.getElementById('1clarification').style.display = 'flex';
         }
       });
     }
@@ -195,9 +192,3 @@ function createInputGroup(labelText, placeholder, prefill = null) {
   group.appendChild(input);
   return { group, input };
 }
-
-
-
-
-
-
