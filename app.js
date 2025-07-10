@@ -14,10 +14,10 @@ let lastY = 0;
 // ===========================
 // App Initialization
 // ===========================
+ document.querySelector("#resetBtn").style.display = "none";
 document.querySelector(".getStartedBtn").addEventListener("click", () => {
   document.querySelector(".greeting").style.display = "none";
   document.querySelector("#appContent").style.display = "block";
-  document.querySelector("#resetBtn").style.display = "inline-block";
   addBranch(appContent);
 });
 
@@ -26,8 +26,8 @@ document.querySelector("#resetBtn").addEventListener("click", () => {
   document.getElementById("appContent").style.display = "flex";
   addBranch(appContent);
   document.querySelector(".branch").style.width = "100%";
+  
 });
-// ===========================
 
 function createSuggestionDropdown(inputElement, suggestions) {
   const list = document.createElement("ul");
@@ -74,7 +74,9 @@ function closeModal() {
   document.getElementById('1clarification').style.display = 'none';
   document.getElementById('2clarification').style.display = 'none';
   document.getElementById('3clarification').style.display = 'none';
+  document.querySelector("#resetBtn").style.display = "inline-block";
 }
+
 function addBranch(parent, prefillGoal = null) {
   const branch = document.createElement("div");
   branch.className = "branch";

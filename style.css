@@ -296,3 +296,9 @@ body {
   gap: 10px;
   z-index: 999;
 }
+
+#resetBtn {
+  margin-bottom: 24px; /* Adjust value as needed */
+  position: fixed;
+  top: 20px;
+}
