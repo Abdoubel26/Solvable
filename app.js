@@ -25,6 +25,7 @@ document.querySelector("#resetBtn").addEventListener("click", () => {
   appContent.innerHTML = "";
   document.getElementById("appContent").style.display = "flex";
   addBranch(appContent);
+  document.querySelector("#resetBtn").style.display = "none";
   document.querySelector(".branch").style.width = "100%";
   
 });
@@ -75,6 +76,7 @@ function closeModal() {
   document.getElementById('2clarification').style.display = 'none';
   document.getElementById('3clarification').style.display = 'none';
   document.querySelector("#resetBtn").style.display = "inline-block";
+  document.querySelector("#resetBtn").style.position = "fixed";
 }
 
 function addBranch(parent, prefillGoal = null) {
