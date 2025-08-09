@@ -4,12 +4,6 @@
 const appContent = document.getElementById("appContent");
 const content = document.querySelector(".app-content");
 
-let scale = 1;
-let panX = 0;
-let panY = 0;
-let isDragging = false;
-let lastX = 0;
-let lastY = 0;
 
 // ===========================
 // App Initialization
@@ -76,7 +70,7 @@ function closeModal() {
   document.getElementById('2clarification').style.display = 'none';
   document.getElementById('3clarification').style.display = 'none';
   document.querySelector("#resetBtn").style.display = "inline-block";
-  document.querySelector("#resetBtn").style.position = "fixed";
+  document.querySelector("#resetBtn").style.position = "absolute";
 }
 
 function addBranch(parent, prefillGoal = null) {

@@ -15,7 +15,7 @@ body {
 .greeting {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 0; 
   width: 100vw;
   height: 100vh;
   background: linear-gradient(to right, #2c5364 , #4f8ca0, #99a2a5);
@@ -137,7 +137,7 @@ body {
   left: -20px;
 }
 
-/* horizontal segment: into the left edge of this box */
+
 .branch:not(.root) > .branch-box::after {
   width: 20px;
   height: 2px;
@@ -255,13 +255,13 @@ body {
 
 .suggestion-list {
   /* ...existing styles... */
-  pointer-events: none; /* Disable interactions by default */
+  pointer-events: none; 
 }
 
 .suggestion-list.visible {
   opacity: 1;
   transform: translateY(0);
-  pointer-events: auto; /* Re-enable only when visible */
+  pointer-events: auto; 
 }
 
 .toolbar {
@@ -287,7 +287,7 @@ body {
 
 .toolbar:active {
   transform: scale(0.95);
-} /* ← This was missing! */
+} 
 
 .toolbar-container {
   position: absolute;
@@ -301,5 +301,5 @@ body {
 #resetBtn {
   margin-bottom: 24px; /* Adjust value as needed */
   position: absolute;
-  top: 20px;
+  top: -5px;
 }
