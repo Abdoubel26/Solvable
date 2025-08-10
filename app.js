@@ -169,7 +169,7 @@ function addSolutionInput(container, branch) {
 function createLabel(text) {
   const labelDiv = document.createElement("div");
   labelDiv.className = "question";
-  labelDiv.innerHTML = `<label>${text}</label>`;
+  labelDiv.innerHTML = `<label class="question">${text}</label>`;
   return labelDiv;
 }
 

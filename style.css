@@ -6,11 +6,12 @@ body {
   background-size: fixed;
   margin-top: 20px;
   margin-bottom: 20px;
-  margin-right: 20px;
+  margin-right: 0px;
   margin-left: 0px;
   padding: 20px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 
 .greeting {
   position: fixed;
@@ -115,34 +116,7 @@ body {
   width: calc(100% + 10px);
 }
 
-/* 4) Suppress connector for root */
-.branch.root > .branch-box::before,
-.branch.root > .branch-box::after {
-  display: none;
-}
 
-/* 5) Draw the lines for non‐root branches */
-.branch:not(.root) > .branch-box::before,
-.branch:not(.root) > .branch-box::after {
-  content: "";
-  position: absolute;
-  background: #999;
-}
-
-/* vertical segment: from parent box down toward this box */
-.branch:not(.root) > .branch-box::before {
-  width: 2px;
-  height: 20px;
-  top: -20px;
-  left: -20px;
-}
-
-
-.branch:not(.root) > .branch-box::after {
-  width: 20px;
-  height: 2px;
-  top: -20px;
-}
 
 .question {
   margin-bottom: 6px;
@@ -302,4 +276,30 @@ body {
   margin-bottom: 24px; /* Adjust value as needed */
   position: absolute;
   top: -5px;
+}
+
+@media (max-width: 800px){
+ #resetBtn {
+  top: -10px;
+ }
+ .modal-content {
+  max-width: 300px;
+ }
+ .input-group {
+  flex-wrap: wrap;
+  min-width: none;
+  overflow: hidden;
+ }
+ .branch-box {
+  margin: 5px;
+  margin-right: 2px;
+ }
+ .branch > .branch {
+  margin-left: 0px;
+  margin-top: 40px;
+  width: calc(100% );
+}
+body {
+  overflow-x: hidden;
+}
 }
