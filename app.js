@@ -89,7 +89,7 @@ function addBranch(parent, prefillGoal = null) {
   container.className = "input-group-container";
   box.appendChild(container);
 
-  // Add the goal input group
+  // Add question input group
   const goalGroup = createInputGroup("The Goal", "Enter the goal:", prefillGoal);
   if (prefillGoal) {
     goalGroup.input.value = prefillGoal;
@@ -180,6 +180,7 @@ function createInputGroup(labelText, placeholder, prefill = null) {
 
   const label = document.createElement("label");
   label.textContent = labelText;
+  label.classList.add('InputLabel');
 
   const input = document.createElement("input");
   input.placeholder = placeholder;

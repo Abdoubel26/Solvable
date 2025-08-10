@@ -284,6 +284,13 @@ body {
  }
  .modal-content {
   max-width: 300px;
+  max-height: 300px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 20px;
+ }
+ .modal-content  button {
+  margin-top: 5px;
  }
  .input-group {
   flex-wrap: wrap;
@@ -302,4 +309,16 @@ body {
 body {
   overflow-x: hidden;
 }
+.input-group label {
+  font-size: 13px;
+  padding: 2px;
+  padding-top: 0;
+  margin-bottom: 4px;
+  margin-left: 8px;
+  font-weight: 400;
 }
+.question {
+  font-weight: 549;
+}
+}
+
