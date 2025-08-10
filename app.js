@@ -173,6 +173,7 @@ function createLabel(text) {
   return labelDiv;
 }
 
+
 function createInputGroup(labelText, placeholder, prefill = null) {
   const group = document.createElement("div");
   group.className = "input-group";
