@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solvable</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" type="image/x-icon" href="assets/images/Solvable logo.png"/>
+  <link rel="manifest" href="manifest.json"/>
+  <meta name="theme-color" content="#1fadea" />
+  <meta name="description" content="A platform to help you solve your problems by using an algorithm that breaks them down into smaller actionable steps." />
+  <meta name="keywords" content="problem solving, advice, solutions, ADHD help, productivity tips,
+   time management, goal setting, self-improvement, mental health, emotional well-being, stress management,
+    decision making, Solvable" />
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+ <div id="appContent" class="app-content"></div>
+  
+  <div class="toolbar-container">
+    <button class="toolbar" id="resetBtn">Reset</button>
+  </div>
+
+  
+  <div class="modal" id="1clarification">
+  <div class="modal-content">
+    <h2>Advice 1</h2>
+    <p>The problem is the thing not allowing you to achieve your goal, it can be anything (e.g. laziness, poverty, etc). Take your time to think.</p>
+    <button onclick="closeModal()">Ok</button>
+  </div>
+</div>
+
+
+<div class="modal" id="2clarification">
+  <div class="modal-content">
+    <h2>Advice 2</h2>
+    <p>
+  Solutions are often the reverse of the problem.
+  For example, If the problem is laziness, the solution is to stop being lazy.
+  Simple.
+  <br>
+  You’re also free to describe a more specific solution that fits your situation.
+  Take your time to think about it.
+</p>
+    <button onclick="closeModal()">Ok</button>
+  </div>
+</div> 
+
+<div class="modal" id="3clarification">
+  <div class="modal-content">
+    <h2>Advice 3</h2>
+    <p>This solution becomes your current goal, since you can't achieve the main goal without achieving this solution. What is preventing you from doing this solution?.</p>
+    <button onclick="closeModal()">Ok</button>
+  </div>
+</div> 
+
+
+</body>
+</html>

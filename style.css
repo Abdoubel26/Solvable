@@ -1,8 +1,7 @@
 body {
-  font-family: Arial, sans-serif;
-  background-image: url("Solvable background.png");
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("assets/images/Solvable\ background.png");
   background-repeat: repeat;
-  background-attachment:calc();
   background-size: fixed;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -19,7 +18,7 @@ body {
   left: 0; 
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(to right, #2c5364 , #4f8ca0, #99a2a5);
+  background: linear-gradient(to right, #36c01a6b ,#dbb63a);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,19 +26,40 @@ body {
   text-align: center;
   color: white;
   z-index: 10;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+  
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .sptx {
   font-family: Helvetica, sans-serif;
   font-size: 3rem;
-  background: linear-gradient(to right, #feb47b, #1fadea);
+  background: linear-gradient(to right, #484ca0, #1fadea);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: slideIn 300ms ease-in;
 }
 
 .getStartedBtn {
   padding: 12px 24px;
-  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  background: linear-gradient(to right, #1000ec, #3c0fe0);
   border: none;
   border-radius: 30px;
   color: white;
@@ -47,13 +67,28 @@ body {
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
-  transition: all 0.3s ease-in-out;
+  transition: 0.3s ease;
+  font-family: 'Segoe UI';
+  animation: slideIn 300ms ease-in;
 }
 
 .getStartedBtn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 75, 43, 0.5);
 }
+
+.logo {
+  animation: slideIn 300ms ease-in;
+  transition: box-shadow 0.3s ease;
+  border-radius: 5%; width: 70px; 
+  height: 70px; margin-bottom: 20px;
+}
+
+.logo:hover {
+  box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
+  
+}
+
 
 .app-content {
   margin: 20px auto;

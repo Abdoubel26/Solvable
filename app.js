@@ -8,13 +8,10 @@ const content = document.querySelector(".app-content");
 // ===========================
 // App Initialization
 // ===========================
- document.querySelector("#resetBtn").style.display = "none";
-document.querySelector(".getStartedBtn").addEventListener("click", () => {
-  document.querySelector(".greeting").style.display = "none";
-  document.querySelector("#appContent").style.display = "block";
-  addBranch(appContent);
-});
-
+ document.querySelector("#appContent").style.display = "block";
+ addBranch(appContent);
+// Hide reset button initially
+document.querySelector("#resetBtn").style.display = "none";
 document.querySelector("#resetBtn").addEventListener("click", () => {
   appContent.innerHTML = "";
   document.getElementById("appContent").style.display = "flex";

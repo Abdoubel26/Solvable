@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Solvable</title>
   <link rel="stylesheet" href="style.css"/>
-  <link rel="icon" type="image/x-icon" href="Solvable logo.png"/>
+  <link rel="icon" type="image/x-icon" href="assets/images/solvableicon.png"/>
   <link rel="manifest" href="manifest.json"/>
   <meta name="theme-color" content="#1fadea" />
   <meta name="description" content="A platform to help you solve your problems by using an algorithm that breaks them down into smaller actionable steps." />
@@ -14,48 +14,15 @@
 <body>
   <div class="greeting">
     <h1 class="sptx">Welcome to Solvable</h1>
-    <img src="Solvable logo.png" alt="Solvable Logo" class="logo" style="border-radius: 5%; width: 70px; height: 70px; margin-bottom: 20px;">
-    <button class="getStartedBtn">Get Started</button>
+    <img src="assets/images/Solvable logo.png" alt="Solvable Logo" class="logo">
+    <form action="Content.html">
+    <button class="getStartedBtn">
+      Get Started 
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" 
+      fill="#e3e3e3" style="vertical-align: middle;">
+      <path d="m600-200-57-56 184-184H80v-80h647L544-704l56-56 280 280-280 280Z"/></svg>
+    </button>
+    </form>
   </div>
-    <div id="appContent" class="app-content" style="display: none;"></div>
-  
-  <div class="toolbar-container">
-    <button class="toolbar" id="resetBtn">Reset</button>
-  </div>
-
-  <script src="app.js" style="align-items: flex-start;"></script>
-  <div class="modal" id="1clarification">
-  <div class="modal-content">
-    <h2>Advice 1</h2>
-    <p>The problem is the thing not allowing you to achieve your goal, it can be anything (e.g. laziness, poverty, etc). Take your time to think.</p>
-    <button onclick="closeModal()">Ok</button>
-  </div>
-</div>
-
-
-<div class="modal" id="2clarification">
-  <div class="modal-content">
-    <h2>Advice 2</h2>
-    <p>
-  Solutions are often the reverse of the problem.
-  For example, If the problem is laziness, the solution is to stop being lazy.
-  Simple.
-  <br>
-  You’re also free to describe a more specific solution that fits your situation.
-  Take your time to think about it.
-</p>
-    <button onclick="closeModal()">Ok</button>
-  </div>
-</div> 
-
-<div class="modal" id="3clarification">
-  <div class="modal-content">
-    <h2>Advice 3</h2>
-    <p>This solution becomes your current goal, since you can't achieve the main goal without achieving this solution. What is preventing you from doing this solution?.</p>
-    <button onclick="closeModal()">Ok</button>
-  </div>
-</div> 
-
-
 </body>
 </html>
