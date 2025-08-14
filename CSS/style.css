@@ -1,0 +1,282 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("../assets/images/Solvable\ background.png");
+  background-repeat: repeat;
+  background-size: fixed;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+.app-content {
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-group label {
+  width: 100px;
+  margin-right: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.input-group input:focus {
+  background-color: #e0e0e0;
+}
+
+
+.branch {
+  position: relative;
+}
+
+
+.branch > .branch-box {
+  margin-top: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.branch > .branch {
+  margin-left: 10px;
+  margin-top: 40px;
+  width: calc(100% + 10px);
+}
+
+
+
+.question {
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+  color: #444;
+  font-weight: 500;
+  margin-left: 5px;
+  color: black;
+  font-weight: bold;
+}
+
+.app-content {
+  transform-origin: top left;
+  will-change: transform;
+  transition: transform 0.2s ease;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center; 
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal.show {
+  display: flex; /* Show the modal when "show" class is added */
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeInScale 0.4s ease forwards;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.modal-content button {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.modal-content button:hover {
+  background: #45a049;
+}
+
+.suggestion-list {
+  background: white;
+  border: 1px solid #ccc;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.suggestion-list.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.suggestion-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.suggestion-list li:hover {
+  background-color: #f0f0f0;
+}
+.suggestion-list li.selected {
+  background-color: #e0e0e0;
+}
+
+.suggestion-list {
+  /* ...existing styles... */
+  pointer-events: none; 
+}
+
+.suggestion-list.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; 
+}
+
+.toolbar {
+  display: none; /* Initially hidden */
+  background-color: #4A90E2;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  position: absolute;
+}
+
+.toolbar:hover {
+  background-color: #357ABD;
+  transform: scale(1.05);
+}
+
+.toolbar:active {
+  transform: scale(0.95);
+} 
+
+.toolbar-container {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  gap: 10px;
+  z-index: 999;
+}
+
+#resetBtn {
+  margin-bottom: 24px; /* Adjust value as needed */
+  position: absolute;
+  top: -5px;
+}
+
+@media (max-width: 800px){
+ #resetBtn {
+  top: -10px;
+ }
+ .modal-content {
+  max-width: 300px;
+  max-height: 300px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 20px;
+ }
+ .modal-content  button {
+  margin-top: 5px;
+ }
+ .input-group {
+  flex-wrap: wrap;
+  min-width: none;
+  overflow: hidden;
+ }
+ .branch-box {
+  margin: 5px;
+  margin-right: 2px;
+ }
+ .branch > .branch {
+  margin-left: 0px;
+  margin-top: 40px;
+  width: calc(100% );
+}
+body {
+  overflow-x: hidden;
+}
+.input-group label {
+  font-size: 13px;
+  padding: 2px;
+  padding-top: 0;
+  margin-bottom: 4px;
+  margin-left: 8px;
+  font-weight: 400;
+}
+.question {
+  font-weight: 549;
+}
+}
+

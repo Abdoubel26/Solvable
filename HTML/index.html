@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solvable</title>
+  <link rel="stylesheet" href="../CSS/greeting.css"/>
+  <link rel="icon" type="image/x-icon" href="../assets/images/solvableicon.png"/>
+  <link rel="manifest" href="../manifest.json"/>
+  <meta name="theme-color" content="#1fadea" />
+  <meta name="description" content="A platform to help you solve your problems by using an algorithm that breaks them down into smaller actionable steps." />
+  <meta name="keywords" content="problem solving, advice, solutions, ADHD help, productivity tips, time management, goal setting, self-improvement, mental health, emotional well-being, stress management, decision making, Solvable" />
+  <script src="../JavaScript/greetings.js"></script>
+</head>
+<body>
+
+ <button id="open-sidebar-button" onclick="openSideBar()" aria-label="open sidebar" aria-expanded="flase" aria-controls="navBar">
+        <svg viewBox="0 0 100 80" width="40" height="40">
+<rect width="100" height="20" rx="10" ry="10"></rect>
+<rect y="30" width="100" height="20" rx="10" ry="10"></rect>
+<rect y="60" width="100" height="20" rx="10" ry="10"></rect>
+</svg>
+    </button>
+
+
+    <div class="navbarcontainer">
+    <nav id="navBar">
+        <ul>
+            <li><button id="close-sidebar-button" onclick="closeSiddeBar()" aria-label="close sidebar">❌</button></li>
+            <li class="home-li"><a class="active-link" href="index.html" aria-current="page">Home</a></li>
+            <li class=""><a href=".html">About</a></li>
+            <li class=""><a href=".html">How it works</a></li>
+            <li class=""><a class="accent-link" href="">About us</a></li>
+            <li ><a href="login.html">Contact</a></li>
+        </ul>
+    </nav>
+  </div>
+  <div class="greeting">
+     
+
+    <div id="overlay" onclick="closeSiddeBar()" aria-hidden="true"></div>
+    <h1 class="sptx">Welcome to Solvable</h1>
+    <img src="../assets/images/Solvable logo.png" alt="Solvable Logo" class="logo">
+    <form action="Content.html">
+    <button class="getStartedBtn">
+      Get Started 
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" 
+      fill="#e3e3e3" style="vertical-align: middle;">
+      <path d="m600-200-57-56 184-184H80v-80h647L544-704l56-56 280 280-280 280Z"/></svg>
+    </button>
+    </form>
+  </div>
+</body>
+</html>
