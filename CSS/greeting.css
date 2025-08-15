@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 :root {
     --primary-color: #1a1a1ae1;
     --hover-color: linear-gradient(to right, #36c01a6b, #dbb63a);
@@ -41,6 +44,14 @@ body {
   color: white;
   z-index: 10;
   animation: fadeIn 1s ease forwards;
+}
+
+.highlight {
+  background: linear-gradient(to right, #484ca0, #1fadea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Eagle Lake', cursive;
+  font-style: italic;
 }
 
 @keyframes fadeIn {
@@ -163,20 +174,19 @@ nav li {
     cursor: pointer;
 }
 
+
+
+.navbarcontainer, #open-sidebar-button {
+  z-index: 1001;
+  position: relative;
+}
+
 #close-sidebar-button {
     display: none;
     background: none;
     padding: 1em;
     cursor: pointer;
     border: none;
-}
-
-#overlay{
-    background-color: rgba(0, 0, 0, 0.416);
-    position: fixed;
-    inset: 0;
-    z-index: 9;
-    display: none;
 }
 
 
@@ -198,9 +208,6 @@ nav li {
     nav.show {
         right: 0;
     }
-    nav.show ~ #overlay {
-        display: block;
-    }
     nav a{
         width: 100%;
         padding-left: 2.5em;
@@ -214,11 +221,11 @@ nav li {
     #open-sidebar-button {
     display: block;
     }
-
     #close-sidebar-button {
     display: block;
     }
 }
 
-
-  
+.hidden {
+    display: none !important;
+}
