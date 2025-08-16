@@ -48,5 +48,36 @@
     </button>
     </form>
   </div>
+
+
+
+  <p class="slogan">Never Get Stuck Again</p>
+
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merienda:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.slogan {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  position: absolute;
+  top: 90vh;
+  white-space: nowrap;
+  font-family: Merienda, sans-serif;
+  font-style: italic;
+  color: black;
+  z-index: 10;
+  animation: scrollText 20s linear infinite;
+}
+
+@keyframes scrollText {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+</style>
 </body>
 </html>
